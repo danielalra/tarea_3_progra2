@@ -20,7 +20,7 @@ Persona LectorPersona::ObtenerPersona(int idPersona){
     long fileSize = archivoEntrada.tellg();
 
 
-    if (posicionPersona > fileSize ||posicionPersona<0)
+    if (posicionPersona > fileSize || posicionPersona<0)
     {
         throw "La persona no existe";
     }
