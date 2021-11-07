@@ -18,6 +18,7 @@ class EscritorPersona {
 
     void EscribirPersona(Persona &persona);
     void Cerrar();
+    //sfdsfs
 
 };
 
