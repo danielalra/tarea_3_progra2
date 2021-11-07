@@ -15,7 +15,7 @@ class ProcesadorArchivoTxt {
   public:
   ProcesadorArchivoTxt(string nombreArchivo);
   
-  void CrearArchivoPersonas();
+  void CrearArchivoPersonas(string nombreArchivoGenerado);
   void Cerrar();
 };
 

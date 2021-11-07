@@ -11,9 +11,9 @@ ProcesadorArchivoTxt::ProcesadorArchivoTxt(string nombre){
     }
 }
 
-void ProcesadorArchivoTxt::CrearArchivoPersonas(){
+void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
 
-    EscritorPersona escritorPersona {"personas.dat"};
+    EscritorPersona escritorPersona {nombreArchivoGenerado};
     
     string linea {""};
     int id {0};

@@ -1,6 +1,10 @@
 #include <iostream>
+#include "procesadorArchivoTxt.h"
 
 int main (){
-    std::cout << "Hello world" << std::endl;
+    
+    ProcesadorArchivoTxt procesador {"personas.txt"};
+    procesador.CrearArchivoPersonas("personas.dat");
+    
     return 0;
 }
