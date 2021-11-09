@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "*.config": "xml",
-        "vector": "cpp"
+        "vector": "cpp",
+        "iosfwd": "cpp"
     },
     "editor.tokenColorCustomizations": {
         "textMateRules": [
