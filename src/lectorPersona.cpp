@@ -1,4 +1,6 @@
 #include "lectorPersona.h"
+#include "./excepciones/excepcionNoSePuedeAbrirArchivo.h"
+#include "./excepciones/excepcionPersonaNoExiste.h"
 
 LectorPersona::LectorPersona(string nombreArchivoEntrada){
 
@@ -6,7 +8,7 @@ LectorPersona::LectorPersona(string nombreArchivoEntrada){
 
     if (!archivoEntrada.is_open())
     {
-        throw "No se puede abrir el archivo";
+        throw new ExcepcionNoSePuedeAbrirArchivo();
     }
 }
 
@@ -22,7 +24,7 @@ Persona LectorPersona::ObtenerPersona(int idPersona){
 
     if (posicionPersona > fileSize || posicionPersona<0)
     {
-        throw "La persona no existe";
+        throw ExcepcionPersonaNoExiste();
     }
 
     archivoEntrada.seekg(posicionPersona);

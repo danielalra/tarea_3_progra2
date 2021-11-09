@@ -1,4 +1,7 @@
 #include "procesadorArchivoTxt.h"
+#include "./excepciones/excepcionNoSePuedeAbrirArchivo.h"
+#include "./excepciones/excepcionFormatoInvalido.h"
+
 #include <sstream>
 
 ProcesadorArchivoTxt::ProcesadorArchivoTxt(string nombre){
@@ -7,7 +10,7 @@ ProcesadorArchivoTxt::ProcesadorArchivoTxt(string nombre){
 
     if (!archivoEntradaTxt.is_open())
     {
-        throw "no se puede abrir el archivo";
+        throw new ExcepcionNoSePuedeAbrirArchivo();
     }
 }
 

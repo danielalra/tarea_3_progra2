@@ -1,4 +1,5 @@
 #include "escritorPersona.h"
+#include "./excepciones/excepcionNoSePuedeAbrirArchivo.h"
 
 EscritorPersona::EscritorPersona(string nombre){
 
@@ -6,7 +7,7 @@ EscritorPersona::EscritorPersona(string nombre){
 
     if (!archivoSalida.is_open())
     {
-        throw "no se puede abrir el archivo";
+        throw new ExcepcionNoSePuedeAbrirArchivo();
     }
 }
 
