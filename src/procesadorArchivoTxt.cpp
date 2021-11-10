@@ -43,7 +43,7 @@ void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
         string idString = to_string(id);
 
 
-        if (!(idString.length()==0))
+        if (id==0)
         {
             throw new ExcepcionFormatoInvalido();
         }

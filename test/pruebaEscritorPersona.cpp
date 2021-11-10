@@ -5,6 +5,7 @@
 #include "../src/escritorPersona.h"
 #include "../src/lectorPersona.h"
 #include "../src/excepciones/excepcionPersonaNoExiste.h"
+#include "../src/excepciones/excepcionNoSePuedeAbrirArchivo.h"
 
 using namespace std;
 
