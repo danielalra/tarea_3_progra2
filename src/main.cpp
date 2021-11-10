@@ -12,11 +12,12 @@ int main (){
     procesador.Cerrar();
 
     LectorPersona lector {"personas.dat"};
-    Persona persona1 = lector.ObtenerPersona(10);
+    Persona persona1 = lector.ObtenerPersona(15);
+    Persona persona2 = lector.ObtenerPersona(22);
     lector.Cerrar();
 
-    cout << "Persona: " << persona1.getId() << " " << persona1.getNombre() << " " << persona1.getApellido() << " " << persona1.getCorreo() << endl;
-    
+    cout << "Persona1: " << persona1.getId() << " " << persona1.getNombre() << " " << persona1.getApellido() << " " << persona1.getCorreo() << endl;
+    cout << "Persona2: " << persona2.getId() << " " << persona2.getNombre() << " " << persona2.getApellido() << " " << persona2.getCorreo() << endl;
     return 0;
 }
 

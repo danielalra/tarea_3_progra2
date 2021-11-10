@@ -1,6 +1,7 @@
 #include "lectorPersona.h"
 #include "./excepciones/excepcionNoSePuedeAbrirArchivo.h"
 #include "./excepciones/excepcionPersonaNoExiste.h"
+#include "./excepciones/excepcionFormatoInvalido.h"
 
 LectorPersona::LectorPersona(string nombreArchivoEntrada){
 
@@ -21,17 +22,26 @@ Persona LectorPersona::ObtenerPersona(int idPersona){
     archivoEntrada.seekg(0, ios::end);
     long fileSize = archivoEntrada.tellg();
 
-
+    //si la persona ingresada no existe
     if (posicionPersona > fileSize || posicionPersona < 0)
     {
         throw ExcepcionPersonaNoExiste();
     }
 
+    //si el archivo de entrada es de otro tipo
     archivoEntrada.seekg(posicionPersona);
-    archivoEntrada.read((char *) &personaLeida, sizeof(Persona));
+
+    try
+    {
+        archivoEntrada.read((char *) &personaLeida, sizeof(Persona));
+    }
+    catch(ExcepcionFormatoInvalido e)
+    {
+        throw e;
+    }
+    
 
     return personaLeida;
-
 }
 
 void LectorPersona::Cerrar(){

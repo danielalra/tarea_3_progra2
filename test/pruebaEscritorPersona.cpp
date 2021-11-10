@@ -4,7 +4,6 @@
 #include "../src/persona.h"
 #include "../src/escritorPersona.h"
 #include "../src/lectorPersona.h"
-#include "../src/excepciones/excepcionPersonaNoExiste.h"
 #include "../src/excepciones/excepcionNoSePuedeAbrirArchivo.h"
 
 using namespace std;
@@ -25,16 +24,17 @@ namespace {
         EXPECT_EQ(personaPrueba.getCorreo(), correo);
 
     }
+   
 
     TEST(EscritorTest, Prueba_EscribirPersona) {
         
         Persona personaPrueba1 {1, "Nombre", "Apellido", "Correo"};
 
-        EscritorPersona escritor {"prueba.dat"};
+        EscritorPersona escritor {"pruebaEscribirPersona.dat"};
         escritor.EscribirPersona(personaPrueba1);
         escritor.Cerrar();
 
-        LectorPersona lector {"prueba.dat"};
+        LectorPersona lector {"pruebaEscribirPersona.dat"};
         Persona personaLeida = lector.ObtenerPersona(10);
         lector.Cerrar();
 
@@ -43,23 +43,4 @@ namespace {
         EXPECT_EQ(personaLeida.getApellido(), personaPrueba1.getApellido());
         EXPECT_EQ(personaLeida.getCorreo(), personaPrueba1.getCorreo());
     }
-
-    TEST(EscritorTest, Prueba_ExcepcionLecturaPersonaNoExiste) {
-
-        Persona personaPrueba2 {1, "Nombre", "Apellido", "Correo"};
-
-        EXPECT_THROW({
-
-            EscritorPersona escritor {"prueba.dat"};
-            escritor.EscribirPersona(personaPrueba2);
-            escritor.Cerrar();
-
-            LectorPersona lector {"prueba.dat"};
-            personaPrueba2 = lector.ObtenerPersona(80);
-            lector.Cerrar();
-
-        }, ExcepcionPersonaNoExiste);
-
-    }
-
 }
