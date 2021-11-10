@@ -58,7 +58,7 @@ namespace {
             personaPrueba2 = lector.ObtenerPersona(80);
             lector.Cerrar();
 
-        }, ExcepcionPersonaNoExiste*);
+        }, ExcepcionPersonaNoExiste);
 
     }
 

@@ -17,7 +17,7 @@ namespace {
 
             ProcesadorArchivoTxt procesadorPrueba {"ArchivoNoExistente.txt"};
 
-        }, ExcepcionNoSePuedeAbrirArchivo*);
+        }, ExcepcionNoSePuedeAbrirArchivo);
 
     }
 
@@ -31,7 +31,7 @@ namespace {
             procesadorPrueba.CrearArchivoPersonas("personasPruebaProcesador.dat");
             procesadorPrueba.Cerrar();
 
-        }, ExcepcionFormatoInvalido*);
+        }, ExcepcionFormatoInvalido);
 
     }
 

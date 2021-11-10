@@ -24,7 +24,7 @@ Persona LectorPersona::ObtenerPersona(int idPersona){
 
     if (posicionPersona > fileSize || posicionPersona < 0)
     {
-        throw new ExcepcionPersonaNoExiste();
+        throw ExcepcionPersonaNoExiste();
     }
 
     archivoEntrada.seekg(posicionPersona);

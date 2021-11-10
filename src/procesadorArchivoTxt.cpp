@@ -11,7 +11,7 @@ ProcesadorArchivoTxt::ProcesadorArchivoTxt(string nombre){
 
     if (!archivoEntradaTxt.is_open())
     {
-        throw new ExcepcionNoSePuedeAbrirArchivo();
+        throw ExcepcionNoSePuedeAbrirArchivo();
     }
     
 }
@@ -46,7 +46,8 @@ void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
 
         if (id==0)
         {
-            throw new ExcepcionFormatoInvalido();
+            ExcepcionFormatoInvalido e;
+            throw e;
         }
 
         Persona persona {id, nombre, apellido, correo};
@@ -56,7 +57,7 @@ void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
 
     catch(ExcepcionFormatoInvalido e){
 
-        std::cerr << e.what() << endl;
+        throw e;
     }
         
             
