@@ -22,9 +22,9 @@ Persona LectorPersona::ObtenerPersona(int idPersona){
     long fileSize = archivoEntrada.tellg();
 
 
-    if (posicionPersona > fileSize || posicionPersona<0)
+    if (posicionPersona > fileSize || posicionPersona < 0)
     {
-        throw ExcepcionPersonaNoExiste();
+        throw new ExcepcionPersonaNoExiste();
     }
 
     archivoEntrada.seekg(posicionPersona);

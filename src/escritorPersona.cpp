@@ -7,7 +7,7 @@ EscritorPersona::EscritorPersona(string nombre){
 
     if (!archivoSalida.is_open())
     {
-        throw new ExcepcionNoSePuedeAbrirArchivo();
+        throw ExcepcionNoSePuedeAbrirArchivo();
     }
 }
 

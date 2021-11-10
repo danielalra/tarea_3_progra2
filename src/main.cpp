@@ -6,13 +6,13 @@
 #include "lectorPersona.h"
 
 int main (){
-    
+
     ProcesadorArchivoTxt procesador {"personas.txt"};
     procesador.CrearArchivoPersonas("personas.dat");
     procesador.Cerrar();
 
     LectorPersona lector {"personas.dat"};
-    Persona persona1 = lector.ObtenerPersona(20);
+    Persona persona1 = lector.ObtenerPersona(10);
     lector.Cerrar();
 
     cout << "Persona: " << persona1.getId() << " " << persona1.getNombre() << " " << persona1.getApellido() << " " << persona1.getCorreo() << endl;

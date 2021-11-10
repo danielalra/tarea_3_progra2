@@ -17,21 +17,21 @@ namespace {
 
             ProcesadorArchivoTxt procesadorPrueba {"ArchivoNoExistente.txt"};
 
-        }, ExcepcionNoSePuedeAbrirArchivo);
+        }, ExcepcionNoSePuedeAbrirArchivo*);
 
     }
 
     //Archivo con formato no esperado
-    TEST(ProcesadorTest, Prueba_ExcepcionProcesadorArchivoTxt){
+   TEST(ProcesadorTest, Prueba_ExcepcionProcesadorArchivoTxt){
 
-        ProcesadorArchivoTxt procesadorPrueba {"prueba.txt"};
 
         EXPECT_THROW({
 
+            ProcesadorArchivoTxt procesadorPrueba {"prueba.txt"};
             procesadorPrueba.CrearArchivoPersonas("personasPruebaProcesador.dat");
             procesadorPrueba.Cerrar();
 
-        }, ExcepcionFormatoInvalido);
+        }, ExcepcionFormatoInvalido*);
 
     }
 

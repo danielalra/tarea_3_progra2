@@ -6,13 +6,14 @@
 #include <iostream>
 
 ProcesadorArchivoTxt::ProcesadorArchivoTxt(string nombre){
-    
+
     archivoEntradaTxt.open(nombre, ifstream::in);
 
     if (!archivoEntradaTxt.is_open())
     {
         throw new ExcepcionNoSePuedeAbrirArchivo();
     }
+    
 }
 
 void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){

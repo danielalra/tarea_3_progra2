@@ -35,7 +35,7 @@ namespace {
         escritor.Cerrar();
 
         LectorPersona lector {"prueba.dat"};
-        Persona personaLeida = lector.ObtenerPersona(0);
+        Persona personaLeida = lector.ObtenerPersona(10);
         lector.Cerrar();
 
         EXPECT_EQ(personaLeida.getId(), personaPrueba1.getId());
@@ -58,7 +58,7 @@ namespace {
             personaPrueba2 = lector.ObtenerPersona(80);
             lector.Cerrar();
 
-        }, ExcepcionPersonaNoExiste);
+        }, ExcepcionPersonaNoExiste*);
 
     }
 
