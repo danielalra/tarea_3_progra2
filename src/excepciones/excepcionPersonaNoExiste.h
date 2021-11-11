@@ -10,7 +10,7 @@ class ExcepcionPersonaNoExiste : public std::exception
     ~ExcepcionPersonaNoExiste() = default;
 
     virtual const char* what() const noexcept {
-        return "Persona no existe";
+        return "Persona no existe.";
     }
 
 };

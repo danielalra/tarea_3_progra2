@@ -10,7 +10,7 @@ class ExcepcionFormatoInvalido : public std::exception
     ~ExcepcionFormatoInvalido() = default;
 
     virtual const char* what() const noexcept {
-        return "El formato del archivo es invalido";
+        return "El formato del archivo es invalido.";
     }
 
 };

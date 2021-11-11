@@ -10,7 +10,7 @@ class ExcepcionNoSePuedeAbrirArchivo : public std::exception
     ~ExcepcionNoSePuedeAbrirArchivo() = default;
 
     virtual const char* what() const noexcept {
-        return "No se puede abrir archivo";
+        return "No se puede abrir el archivo.";
     }
 
 };

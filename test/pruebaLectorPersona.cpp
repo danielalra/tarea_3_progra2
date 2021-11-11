@@ -6,42 +6,54 @@
 #include "../src/lectorPersona.h"
 #include "../src/excepciones/excepcionPersonaNoExiste.h"
 #include "../src/excepciones/excepcionNoSePuedeAbrirArchivo.h"
+#include "../src/excepciones/excepcionFormatoInvalido.h"
 
 using namespace std;
 
 namespace{
 
-    TEST(LectorTest, Prueba_ExcepcionLecturaPersonaNoExiste1) {
+    //leer una persona en una psocion negativa
+    TEST(LectorTest, Prueba_ExcepcionLeerPersonaNoExiste1) {
 
-        Persona personaPrueba1 {10, "Nombre", "Apellido", "Correo"};
+        Persona personaPrueba {1, "Nombre", "Apellido", "Correo"};
+        EscritorPersona escritor {"pruebaLeerPersona.dat"};
+        escritor.EscribirPersona(personaPrueba);
+        escritor.Cerrar();
 
         EXPECT_THROW({
 
-            EscritorPersona escritor {"pruebaLeerPersona1.dat"};
-            escritor.EscribirPersona(personaPrueba1);
-            escritor.Cerrar();
-
-            LectorPersona lector {"pruebaLeerPersona1.dat"};
-            personaPrueba1 = lector.ObtenerPersona(80);
+            LectorPersona lector {"pruebaLeerPersona.dat"};
+            Persona personaPruebaActual = lector.ObtenerPersona(-1);
             lector.Cerrar();
 
         }, ExcepcionPersonaNoExiste);
 
     }
 
-    TEST(LectorTest, Prueba_ExcepcionLecturaPersonaNoExiste2) {
+    //leer a la persona en la poscion siguiente vacia (hay n personas, lea la n+1. En este caso el fileSize = n+1)
+    TEST(LectorTest, Prueba_ExcepcionLeerPersonaNoExiste2) {
 
-        Persona personaPrueba2 {10, "Nombre", "Apellido", "Correo"};
 
         EXPECT_THROW({
 
-            EscritorPersona escritor {"pruebaLeerPersona2.dat"};
-            escritor.EscribirPersona(personaPrueba2);
-            escritor.Cerrar();
-
-            LectorPersona lector {"pruebaLeerPersona2.dat"};
-            personaPrueba2 = lector.ObtenerPersona(9);
+            LectorPersona lector {"pruebaLeerPersona.dat"};
+            Persona personaPruebaActual = lector.ObtenerPersona(1);
             lector.Cerrar();
+
+
+        }, ExcepcionPersonaNoExiste);
+
+    }
+
+    //leer una persona que no existe, poscion mayor que el fileSize
+    TEST(LectorTest, Prueba_ExcepcionLeerPersonaNoExiste3) {
+
+        EXPECT_THROW({
+
+            LectorPersona lector {"pruebaLeerPersona.dat"};
+            Persona personaPruebaActual = lector.ObtenerPersona(2);
+            lector.Cerrar();
+            
 
         }, ExcepcionPersonaNoExiste);
 
@@ -52,11 +64,11 @@ namespace{
 
         EXPECT_THROW({
 
-            LectorPersona lector {"pruebaFormatoInvalido.txt"};
-            Persona personaPrueba = lector.ObtenerPersona(10);
+            LectorPersona lector {"archivoFormatoInvalido.zip"};
+            Persona personaPrueba = lector.ObtenerPersona(0);
             lector.Cerrar();
 
-        }, ExcepcionPersonaNoExiste);
+        }, ExcepcionFormatoInvalido);
 
     }
 }

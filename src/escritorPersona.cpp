@@ -5,9 +5,10 @@ EscritorPersona::EscritorPersona(string nombre){
 
     archivoSalida.open(nombre, ios::out|ios::binary);
 
-    if (!archivoSalida.is_open())
-    {
+    if (!archivoSalida.is_open()){
+
         throw ExcepcionNoSePuedeAbrirArchivo();
+        
     }
 }
 

@@ -29,8 +29,8 @@ void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
 
     while (std::getline(archivoEntradaTxt, linea)) {
 
-    try
-    {
+    try{
+
         istringstream stream(linea);
 
         id = 0;
@@ -40,25 +40,21 @@ void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
 
         stream >> id >> nombre >> apellido >> correo;
 
+        //si la linea leida no posee datos de una persona, hay un error de formato
+        if(id == 0 && nombre == "" && apellido == "" && correo == ""){
 
-        string idString = to_string(id);
-
-
-        if (id==0)
-        {
-            ExcepcionFormatoInvalido e;
-            throw e;
+            throw ExcepcionFormatoInvalido();
         }
 
         Persona persona {id, nombre, apellido, correo};
         escritorPersona.EscribirPersona(persona);
 
-    }
+        }
 
     catch(ExcepcionFormatoInvalido e){
 
         throw e;
-    }
+        }
         
             
     }
