@@ -3,6 +3,7 @@
 #include "./excepciones/excepcionPersonaNoExiste.h"
 #include "./excepciones/excepcionFormatoInvalido.h"
 
+
 LectorPersona::LectorPersona(string nombreArchivoEntrada){
 
     archivoEntrada.open(nombreArchivoEntrada, ios::in|ios::binary);
@@ -33,9 +34,16 @@ Persona LectorPersona::ObtenerPersona(int posicion){
     archivoEntrada.seekg(posicionPersona);
     archivoEntrada.read((char *) &personaLeida, sizeof(Persona));
 
+
+    int id = personaLeida.getId();
+    string nombre = personaLeida.getNombre();
+    string apellido = personaLeida.getApellido();
+    string correo = personaLeida.getCorreo();
+
     //si el archivo de entrada es de otro tipo y los datos ingresados en personaLeida son incorrectos
-    //si dicha personaLeida posee id=0 entonces no contiene datos que se leyeron de una persona en binario
-    if(personaLeida.getId() == 0 && personaLeida.getNombre() == "" && personaLeida.getApellido() == "" && personaLeida.getCorreo() == ""){
+    //los el id o los .length() son 0 en caso de no ingresar datos o 1 al ingresar dato que no respeta al formato
+    //por ejemplo leer un .zip donde las primeras posiciones contienen informacion que no son string, char, etc ahi se guardan en la variable (nombre, apellido o correo) como un string de length() = 1;
+    if((id == 0) || (nombre.length() < 2) || (apellido.length() < 2) || (correo.length() < 2)){
 
         throw ExcepcionFormatoInvalido();
     }

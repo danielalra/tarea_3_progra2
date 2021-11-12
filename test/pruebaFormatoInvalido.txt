@@ -1,2 +1,1 @@
-El formato de este archivo es invalido.
-
+El formato de este archivo no coincide con el de personastxt

@@ -12,7 +12,7 @@ using namespace std;
 
 namespace{
 
-    //leer una persona en una psocion negativa
+    //leer una persona en una posicion negativa
     TEST(LectorTest, Prueba_ExcepcionLeerPersonaNoExiste1) {
 
         Persona personaPrueba {1, "Nombre", "Apellido", "Correo"};
@@ -64,7 +64,7 @@ namespace{
 
         EXPECT_THROW({
 
-            LectorPersona lector {"archivoFormatoInvalido.zip"};
+            LectorPersona lector {"formatoInvalido.zip"};
             Persona personaPrueba = lector.ObtenerPersona(0);
             lector.Cerrar();
 

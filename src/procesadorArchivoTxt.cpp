@@ -41,7 +41,7 @@ void ProcesadorArchivoTxt::CrearArchivoPersonas(string nombreArchivoGenerado){
         stream >> id >> nombre >> apellido >> correo;
 
         //si la linea leida no posee datos de una persona, hay un error de formato
-        if(id == 0 && nombre == "" && apellido == "" && correo == ""){
+        if(id == 0 || nombre == "" || apellido == "" || correo == ""){
 
             throw ExcepcionFormatoInvalido();
         }
